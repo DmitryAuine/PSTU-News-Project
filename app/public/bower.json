@@ -1,0 +1,30 @@
+{
+  "name": "PSTUNewsProject",
+  "version": "0.0.1",
+  "authors": [
+    "Dmitry Olkhovoy <auuine@gmail.com>"
+  ],
+  "description": "Project for course work",
+  "keywords": [
+    "PSTU",
+    "Backbone.js",
+    "Require.js",
+    "Lodash.js",
+    "Deployd",
+    "MongoDB",
+    "Node.js"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Auine/PSTU-News-Project",
+  "private": true,
+  "devDependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.1",
+    "flatui": "*",
+    "requirejs-text": "~2.0.12",
+    "backbone.localstorage": "~1.1.13",
+    "font-awesome": "~4.1.0",
+    "requirejs": "~2.1.14",
+    "bootstrap": "~3.2.0"
+  }
+}

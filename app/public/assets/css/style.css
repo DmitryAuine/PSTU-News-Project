@@ -1,0 +1,14 @@
+.new-time{
+    padding: 30px;
+}
+p{
+    font-size: 18px;
+}
+.news{
+    padding-bottom: 50px;
+}
+.header-a{
+    text-decoration: none;
+    cursor: pointer;
+    /*color: #34495e;*/
+}
