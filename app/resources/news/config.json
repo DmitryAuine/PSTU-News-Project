@@ -1,0 +1,37 @@
+{
+	"type": "Collection",
+	"properties": {
+		"header": {
+			"name": "header",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "header",
+			"order": 0
+		},
+		"sContent": {
+			"name": "sContent",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "sContent",
+			"order": 1
+		},
+		"content": {
+			"name": "content",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "content",
+			"order": 2
+		},
+		"time": {
+			"name": "time",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "time",
+			"order": 3
+		}
+	}
+}
