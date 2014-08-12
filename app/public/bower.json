@@ -25,6 +25,7 @@
     "backbone.localstorage": "~1.1.13",
     "font-awesome": "~4.1.0",
     "requirejs": "~2.1.14",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "animate.css": "~3.2.0"
   }
 }

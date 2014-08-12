@@ -8,13 +8,14 @@ define([
         el: '#application',
         initialize: function() {
             this.initNewsFeed();
+//            dpd.on('test', function(){alert()});
         },
         render: function() {
+            this.$el.append(this.NewsFeed.render().el);
             return this;
         },
         initNewsFeed: function() {
             this.NewsFeed = new NewsFeed();
-            this.$el.append(this.NewsFeed.render().el);
         }
     });
     return ApplicationView;

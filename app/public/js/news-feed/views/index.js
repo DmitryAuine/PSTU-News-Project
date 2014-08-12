@@ -1,19 +1,25 @@
 'use strict';
 
 define([
+    'underscore',
     'backbone',
     '../new/collections/news',
+    '../new/models/new',
     '../new/views/index'
-], function(Backbone, NewsList, NewView) {
+], function(_, Backbone, NewsList, NewModel, NewView) {
     var NewsFeedView = Backbone.View.extend({
         id: 'news',
         className: 'news',
         initialize: function() {
-            this.listenTo(NewsList, 'reset', this.addNews);
+            this.initListenrs();
             NewsList.fetch({reset: true});
         },
-        render: function() {
-            return this;
+        initListenrs: function() {
+            var self = this;
+            this.listenTo(NewsList, 'reset', this.addNews);
+            dpd.on('new:add', function(newModelJSON) {
+                self.addNewOnEmit(self.createNewModel(newModelJSON));
+            });
         },
         addNews: function() {
             NewsList.each(function(newModel) {
@@ -21,19 +27,19 @@ define([
             }, this);
         },
         addNew: function(newModel) {
-            this.$el.append(this.createNewView(newModel).render().el);
+            this.$el.prepend(this.createNewView(newModel).render().el);
         },
-        viewNew: function() {
-
+        addNewOnEmit: function(newModel) {
+            var view = this.createNewView(newModel).render();
+            view.$el.hide();
+            this.$el.prepend(view.el);
+            view.$el.slideDown();
         },
         createNewView: function(newModel) {
             return new NewView({model: newModel});
         },
-        editNew: function() {
-
-        },
-        removeNew: function() {
-
+        createNewModel: function(newModelJSON) {
+            return new NewModel(newModelJSON);
         }
     });
     return NewsFeedView;
