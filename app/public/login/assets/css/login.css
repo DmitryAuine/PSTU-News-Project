@@ -1,0 +1,18 @@
+body{
+    background: #1abc9c;
+    /*background-image: url('../img/bkg.jpg');*/
+    background-size: cover;
+}
+.login-app{
+    width: 960px;
+    margin: auto;
+    position: relative;
+    top: -50px;
+}
+.login{
+    background: none;
+    padding: 38px 38px 0px; 
+}
+.login-screen{
+    background: none;
+}

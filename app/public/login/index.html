@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PSTU</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Loading Bootstrap -->
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Loading Flat UI -->
+        <link href="../vendor/flat.ui/css/flat-ui.css" rel="stylesheet">
+        <link href="./assets/css/login.css" rel="stylesheet">
+        <link href="../bower_components/animate.css/animate.css" rel="stylesheet">
+    </head>
+    <body>
+        <div style="text-align: right; padding: 20px 35px;"><a style="color: white;" href="/registration">Sign up</a></div>
+        <div class="login-app">
+            <div class="login">
+                <div class="login-screen">
+                    <a href="/" style="color: white">
+                        <div class="login-icon">
+                            <!--<img src="./assets/img/ns-logo.png" alt="Welcome to Nodespace" />-->
+                            <h4>Welcome to <small>PSTU news</small></h4>
+                        </div>
+                    </a>
+                    <form>
+                        <div id="login-form" class="login-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control login-field" value="" placeholder="Username" id="login-username" />
+                                <label class="login-field-icon fui-user" for="login-username"></label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-password" />
+                                <label class="login-field-icon fui-lock" for="login-password"></label>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" id="login-submit" value="Sign in">
+                            <a class="login-link" href="#">Lost your password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+        <script type="text/javascript" src="/dpd.js"></script>
+        <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="./js/index/login.js"></script>
+    </body>
+</html>

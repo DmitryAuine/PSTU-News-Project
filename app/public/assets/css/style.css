@@ -15,14 +15,13 @@ p{
     cursor: pointer;
     /*color: #34495e;*/
 }
-
 footer{
     text-align: right;
     padding: 2px;
+    background: none;
 }
-
 .view-overlay{
-    position: absolute; 
+    position: fixed; 
     top: 0px; 
     left: 0px; 
     background: white; 
@@ -30,10 +29,15 @@ footer{
     height: 100%; 
     padding: 50px;
 }
-
 .close-wrapper{
     position: absolute; 
     right: 20px; 
     font-size: 52px; 
+    cursor: pointer;
+}
+.login-panel{
+    float:right; 
+    padding: 10px; 
+    margin-right: 20px; 
     cursor: pointer;
 }

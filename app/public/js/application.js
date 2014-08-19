@@ -7,15 +7,29 @@ define([
     var ApplicationView = Backbone.View.extend({
         el: '#application',
         initialize: function() {
-            this.initNewsFeed();
-//            dpd.on('test', function(){alert()});
+            this.getUserLoginData();
+            this.listenTo(this, 'user:inited', this.initNewsFeed);
         },
         render: function() {
-            this.$el.append(this.NewsFeed.render().el);
+            this.$loginPanel = this.$('#login-panel');
             return this;
         },
-        initNewsFeed: function() {
-            this.NewsFeed = new NewsFeed();
+        initNewsFeed: function(isLogin) {
+            this.NewsFeed = new NewsFeed({isLogin: isLogin});
+            this.$el.append(this.NewsFeed.render().el);
+        },
+        getUserLoginData: function() {
+            dpd.users.me(function(me) {
+                if (me) {
+                    this.setUserLoginData(me);
+                    this.trigger('user:inited', true);
+                } else {
+                    this.trigger('user:inited', false);
+                }
+            }.bind(this));
+        },
+        setUserLoginData: function(me) {
+            this.$loginPanel.html(me.username);
         }
     });
     return ApplicationView;

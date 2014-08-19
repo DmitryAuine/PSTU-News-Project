@@ -9,6 +9,5 @@
   },
   "_source": "git://github.com/paulovitin/Flat-UI.git",
   "_target": "*",
-  "_originalSource": "flatui",
-  "_direct": true
+  "_originalSource": "flatui"
 }

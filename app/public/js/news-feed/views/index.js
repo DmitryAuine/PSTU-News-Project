@@ -10,7 +10,8 @@ define([
     var NewsFeedView = Backbone.View.extend({
         id: 'news',
         className: 'news',
-        initialize: function() {
+        initialize: function(params) {
+            this.isLogin = params.isLogin;
             this.initListenrs();
             NewsList.fetch({reset: true});
         },
@@ -36,7 +37,7 @@ define([
             view.$el.slideDown();
         },
         createNewView: function(newModel) {
-            return new NewView({model: newModel});
+            return new NewView({model: newModel, isLogin: this.isLogin});
         },
         createNewModel: function(newModelJSON) {
             return new NewModel(newModelJSON);
