@@ -5,8 +5,9 @@ define([
     'backbone',
     'text!../templates/index.html',
     'text!../templates/indexLogin.html',
-    'text!../templates/view.html'
-], function(_, Backbone, NewTemplate, NewLoginTemplate, ViewTemplate) {
+    'text!../templates/view.html',
+    'events'
+], function(_, Backbone, NewTemplate, NewLoginTemplate, ViewTemplate, Events) {
     var NewView = Backbone.View.extend({
         className: 'row',
         template: _.template(NewTemplate),
@@ -16,6 +17,8 @@ define([
             'click .action-link-to-view': 'view'
         },
         initialize: function(params) {
+            this.listenTo(this.model, 'destroy', this.remove);
+            this.listenTo(Events, 'news:fetch', this.remove);
             this.isLogin = params.isLogin;
             this.$body = $('body');
         },

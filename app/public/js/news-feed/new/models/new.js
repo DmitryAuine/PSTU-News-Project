@@ -1,8 +1,9 @@
 'use strict';
 
 define([
-    'backbone'
-], function(Backbone) {
+    'backbone',
+    'events'
+], function(Backbone, Events) {
 
     var NewModel = Backbone.Model.extend({
         defaults: {
@@ -10,7 +11,7 @@ define([
             sContent: '',
             content: '',
             time: ''
-        }
+        },
     });
     return NewModel;
 });

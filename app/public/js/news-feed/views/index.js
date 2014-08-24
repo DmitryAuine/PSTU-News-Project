@@ -5,15 +5,31 @@ define([
     'backbone',
     '../new/collections/news',
     '../new/models/new',
-    '../new/views/index'
-], function(_, Backbone, NewsList, NewModel, NewView) {
+    '../new/views/index',
+    'text!../templates/template.html',
+    'events'
+], function(_, Backbone, NewsList, NewModel, NewView, Template, Events) {
     var NewsFeedView = Backbone.View.extend({
         id: 'news',
         className: 'news',
+        PROPAGATION_FORWARD: 0,
+        PROPAGATION_BACK: 1,
+        _currentSkip: 0,
+        events: {
+            'click [data-propagation]': 'propagation'
+        },
         initialize: function(params) {
             this.isLogin = params.isLogin;
             this.initListenrs();
-            NewsList.fetch({reset: true});
+            this.fetchNews(5);
+        },
+        fetchNews: function(limit) {
+            Events.trigger('news:fetch');
+            NewsList.fetch({reset: true, data: {$skip: this._currentSkip, $limit: limit}});
+        },
+        render: function() {
+            this.$el.html(Template);
+            return this;
         },
         initListenrs: function() {
             var self = this;
@@ -41,6 +57,25 @@ define([
         },
         createNewModel: function(newModelJSON) {
             return new NewModel(newModelJSON);
+        },
+        propagation: function(evt) {
+            var propagation = $(evt.target).data('propagation');
+
+            switch (propagation) {
+                case this.PROPAGATION_FORWARD:
+                    {
+                        if (this._currentSkip >= 5) {
+                            this._currentSkip -= 5;
+                        }
+                        break;
+                    }
+                case this.PROPAGATION_BACK:
+                    {
+                        this._currentSkip += 5;
+                        break;
+                    }
+            }
+            this.fetchNews(5);
         }
     });
     return NewsFeedView;
