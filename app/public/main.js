@@ -22,7 +22,8 @@ require.config({
         store: '../bower_components/backbone.localstorage/backbone.localStorage',
         bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min',
         jquery: '../bower_components/jquery/dist/jquery',
-        events: 'js/events'
+        events: 'js/events',
+        data: 'js/data'
     }
 });
 

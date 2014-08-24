@@ -14,7 +14,8 @@ define([
         loginTemplate: _.template(NewLoginTemplate),
         viewTemplate: _.template(ViewTemplate),
         events: {
-            'click .action-link-to-view': 'view'
+            'click .action-link-to-view': 'view',
+            'click .rm': 'clear'
         },
         initialize: function(params) {
             this.listenTo(this.model, 'destroy', this.remove);
@@ -23,7 +24,7 @@ define([
             this.$body = $('body');
         },
         render: function() {
-            this.$el.html(this.login ? this.templateLogin(this.model.toJSON()) : 
+            this.$el.html(this.isLogin ? this.loginTemplate(this.model.toJSON()) : 
                     this.template(this.model.toJSON()));
             return this;
         },
@@ -43,6 +44,9 @@ define([
                         this.viewOverlay.remove();
                         this.$body.css('overflow-y', 'initial');
                     }.bind(this));
+        },
+        clear: function(){
+            this.model.destroy();
         }
     });
     return NewView;

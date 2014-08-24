@@ -2,8 +2,9 @@
 
 define([
     'backbone',
-    './news-feed/views/index'
-], function(Backbone, NewsFeed) {
+    './news-feed/views/index',
+    'data'
+], function(Backbone, NewsFeed, Data) {
     var ApplicationView = Backbone.View.extend({
         el: '#application',
         initialize: function() {
@@ -30,6 +31,8 @@ define([
         },
         setUserLoginData: function(me) {
             this.$loginPanel.html(me.username);
+            this.$loginPanel.append('<a href="/postmanager"> / postmanager</a>');
+            Data.me = me;
         }
     });
     return ApplicationView;

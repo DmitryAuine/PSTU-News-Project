@@ -25,7 +25,11 @@ define([
         },
         fetchNews: function(limit) {
             Events.trigger('news:fetch');
-            NewsList.fetch({reset: true, data: {$skip: this._currentSkip, $limit: limit}});
+            NewsList.fetch({reset: true, data: {
+                    $skip: this._currentSkip,
+                    $limit: limit
+                }
+            });
         },
         render: function() {
             this.$el.html(Template);

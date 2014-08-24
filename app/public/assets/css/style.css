@@ -41,3 +41,17 @@ footer{
     margin-right: 20px; 
     cursor: pointer;
 }
+.rm{
+    cursor: pointer;
+}
+
+.propagation ul{
+  list-style: none;  
+}
+
+.propagation ul li{
+    float: left;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+}
